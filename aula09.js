@@ -10,12 +10,17 @@ Lojas Quase Dois - tabela de preços
 50 - R$ 99.50
 */
 
-let quantidadeItens = 0;
-let valorItem = 1.99;
-let valorTotal = quantidadeItens * valorItem;
+// const valorItem = 1.99; // constante, porque esse valor nunca muda
+// let valorTotal;
+// let arrayTabela = [];
 
-// listaPrecos = [];
- 
+// for (i = 1; i <= 50; i++) {
+//     valorTotal = i * valorItem
+
+//     // arrayTabela += valorTotal
+//     arrayTabela[i] = valorTotal; // isso quer dizer que a cada iteração, a posição i no array vai ser preenchida e eu preciso dar o console depois do for, senão eu vou imprimir 50 vezes a mesma coisa 
+// }
+//     console.table(arrayTabela);
 
 
 /*
@@ -28,7 +33,50 @@ Produto 3: R$ 3
 Total: R$ 9.00
 Dinheiro: R$ 20.00
 Troco: R$ 11.00
+*/
 
+console.log('Lojas Tabajara');
+let precoProduto = 0;
+let produto = true;
+let listaProdutos = [];
+let i = 1;
+let totalCompra = 0;
+let dinheirinho = 0;
+let troco = 0;
+
+do {
+    precoProduto = Number(prompt('Digita o preço do produto, meu bem: '));
+    // outroProduto = (prompt('Quer adicionar mais um produto?'))
+
+    listaProdutos[i++] = precoProduto
+
+    if (precoProduto == 0) {
+        produto = false
+        listaProdutos.pop()
+    }
+} while (produto)
+
+console.table(listaProdutos);
+
+for (i = 1; i < listaProdutos.length; i++) {
+    totalCompra += listaProdutos[i]
+}
+console.log(totalCompra, 'valor total');
+
+dinheirinho = Number(prompt(`Sua compra deu ${totalCompra} reais, quanto você vai dar em dinheiro: `))
+troco = dinheirinho - totalCompra
+
+if(dinheirinho < totalCompra){
+    console.log('CALOTEIRO');
+    return
+} if (dinheirinho == totalCompra){
+    console.log('que lindo, você nem precisa de troco, amada, vai embora');
+    return
+}
+
+console.log(dinheirinho);
+console.log(`Sua compra deu ${totalCompra} reais, você pagou com ${dinheirinho} reais e seu troco é ${troco} reais`);
+
+/*
 com a entrada de 3 valores, ordená-los de forma crescente.
-
 */
